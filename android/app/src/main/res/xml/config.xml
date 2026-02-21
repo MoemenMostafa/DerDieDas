@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <access origin="*" />
+  
+  <feature name="AppCenterAnalytics">
+    <param name="onload" value="true"/>
+    <param name="android-package" value="com.microsoft.azure.mobile.cordova.AppCenterAnalyticsPlugin"/>
+  </feature>
+
+  <feature name="AppCenterShared">
+    <param name="onload" value="true"/>
+    <param name="android-package" value="com.microsoft.azure.mobile.cordova.AppCenterSharedPlugin"/>
+  </feature>
+
+  <feature name="Device">
+    <param name="android-package" value="org.apache.cordova.device.Device"/>
+  </feature>
+
+  <feature name="OneSignalPush">
+    <param name="android-package" value="com.onesignal.cordova.OneSignalPush"/>
+  </feature>
+
+  
+  <preference name="APP_SECRET" value="ebecc913-0710-4db7-8737-7d99d2de7ca2" />
+</widget>

@@ -1,0 +1,12 @@
+* {
+    @media (prefers-color-scheme: light) {
+        .content {
+            color: var(--ion-color-primary);
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        .content {
+            color: white;
+        }
+    }
+}

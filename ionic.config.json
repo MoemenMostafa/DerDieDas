@@ -1,0 +1,8 @@
+{
+  "name": "Artikel Welt",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

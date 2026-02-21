@@ -1,0 +1,62 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row class="ion-text-center">
+      <ion-col size="10" offset="1">
+      <circle-progress
+        [percent]="getProgress()"
+        [radius]="85"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'var(--ion-color-primary)'"
+        [innerStrokeColor]="'var(--ion-color-primary-tint)'"
+        [animation]="true"
+        [animationDuration]="300"
+        [units]= "'common.day' + (getStreakDays() > 1 ? 's' : '') | translate"
+        [title]="getStreakDays()"
+        [subtitle]="'modal.progress.streak' | translate"
+        [titleFontSize]="30"
+        titleColor="var(--ion-color-primary)"
+        [unitsFontSize]="20"
+        unitsColor="var(--ion-color-primary)"
+        [subtitleFontSize]="18"
+      ></circle-progress>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="10" offset="1">
+      <circle-progress
+        [percent]="totalWordsProgress"
+        [radius]="85"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'var(--ion-color-primary)'"
+        [innerStrokeColor]="'var(--ion-color-primary-tint)'"
+        [animation]="true"
+        [animationDuration]="300"
+        [subtitle]="'modal.progress.totalProgress' | translate"
+        [titleFontSize]="30"
+        titleColor="var(--ion-color-primary)"
+        [unitsFontSize]="20"
+        unitsColor="var(--ion-color-primary)"
+        [subtitleFontSize]="14"
+      ></circle-progress>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" fill="clear" size="large" (click)="dismiss(false)">
+        <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+        {{'common.close' | translate}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

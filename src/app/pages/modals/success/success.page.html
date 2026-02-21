@@ -1,0 +1,76 @@
+<ion-header class="ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngIf="!score && score !== 0" size="4" offset="4" class="ion-text-center">
+        <img src="assets/icon/success.svg"/>
+      </ion-col>
+      <ion-col *ngIf="score || score === 0" size="8" offset="2" class="ion-text-center">
+        <div class="stars">
+          <ion-icon name="star"  *ngFor="let star of getStarsArray()"></ion-icon>
+          <ion-icon name="star-outline" *ngFor="let star of getEmptyStarsArray()"></ion-icon>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row class="ion-text-center">
+      <ion-col size="10" offset="1">
+      <circle-progress
+        [percent]="getProgress()"
+        [radius]="100"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'var(--ion-color-primary)'"
+        [innerStrokeColor]="'var(--ion-color-primary-tint)'"
+        [animation]="true"
+        [animationDuration]="300"
+        [subtitle]= "'modal.success.dailyProgress' | translate"
+        [titleFontSize]="30"
+        titleColor="var(--ion-color-primary)"
+        [unitsFontSize]="20"
+        unitsColor="var(--ion-color-primary)"
+        [subtitleFontSize]="14"
+      ></circle-progress>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col *ngIf="!score && score !== 0" size="10" offset="1">
+        <h1>{{'modal.success.congratulations' | translate}}</h1>
+      </ion-col>
+      <ion-col *ngIf="score || score === 0" size="10" offset="1">
+        <h1>{{'modal.success.youGot' | translate}}</h1>
+        <h1>{{score}} / {{size}}</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-row *ngIf="showAgainButton">
+    <ion-col size="6">
+      <ion-button expand="block" fill="clear" size="large" (click)="dismiss(true)">
+        <ion-icon slot="start" name="refresh-outline"></ion-icon>
+        {{'common.again' | translate}}
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" fill="clear" size="large" (click)="dismiss(false)">
+        <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+        {{'common.continue' | translate}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!showAgainButton">
+    <ion-col>
+      <ion-button expand="block" fill="clear" size="large" (click)="dismiss(false)">
+        <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+        {{'common.continue' | translate}}
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

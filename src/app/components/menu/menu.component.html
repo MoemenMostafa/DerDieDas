@@ -1,0 +1,17 @@
+<ion-menu side="end" menuId="first" contentId="main" swipeGesture="false">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>{{'menu.title' | translate}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>  
+        <ion-menu-toggle>
+          <ion-item [routerLink]="['/home']">{{'menu.home' | translate}}</ion-item>
+          <ion-item (click)="openModal(EndingsPage)">{{'menu.endings' | translate}}</ion-item>
+          <ion-item [routerLink]="['/memory-cards']">{{'menu.memoryCards' | translate}}</ion-item>
+          <ion-item [routerLink]="['/intro']">{{'menu.intro' | translate}}</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+</ion-menu>

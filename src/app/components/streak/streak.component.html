@@ -1,0 +1,18 @@
+<ion-grid *ngIf="showIcons">
+  <ion-row align-items-center>
+    <ion-col class="daily-goal">
+      <ion-item  (click)="onDailyProgressClick()" >
+        <ion-icon name="locate-outline" color="primary" class="ion-padding-end" ></ion-icon>
+        {{getStreakPrecent()}}%
+      </ion-item>
+    </ion-col>
+    <ion-col class="streak">
+      <ion-item  (click)="onTotalProgressClick()">
+        <ion-icon name="flame-outline" color="primary" class="ion-padding-end"></ion-icon>
+        {{getStreakDays()}} {{'common.day' + (getStreakDays() > 1 ? 's' : '') | translate}}
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-progress-bar *ngIf="showProgressBar" [value]="getStreakPrecent()/100"></ion-progress-bar>
+

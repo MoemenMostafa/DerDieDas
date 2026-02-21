@@ -1,0 +1,40 @@
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <div class="slide">
+        <img src="/assets/img/group.png"/>
+        <h1 [translate]="'page.intro.page1.title'"></h1>
+        <p [innerHTML]="'page.intro.page1.body' | translate"></p> 
+      </div>
+     </ion-slide>
+    <ion-slide>
+      <div class="slide">
+        <img src="/assets/img/hero.png"/>
+        <h1 [translate]="'page.intro.page2.title'"></h1>
+        <p [innerHTML]="'page.intro.page2.body' | translate"></p> 
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide">
+        <img src="/assets/img/princess.png"/>
+        <h1 [translate]="'page.intro.page3.title'"></h1>
+        <p [innerHTML]="'page.intro.page3.body' | translate"></p> 
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide">
+        <img src="/assets/img/robot.png"/>
+        <h1 [translate]="'page.intro.page4.title'"></h1>
+        <p [innerHTML]="'page.intro.page4.body' | translate"></p> 
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide">
+        <img src="/assets/img/rocket.png"/>
+        <h1 [translate]="'page.intro.page5.title'"></h1>
+        <p [innerHTML]="'page.intro.page5.body' | translate"  class="altarnate" ></p> 
+        <p><ion-button shape="round" expand="block" fill="solid" size="large" (click)="start()" [translate]="'common.start'"></ion-button></p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

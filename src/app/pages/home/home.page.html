@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <app-streak [showIcons]="true" [onDailyProgressClick]="openStreakPage" [onTotalProgressClick]="openProgressPage"></app-streak>
+      <!-- {{'page.home.title' | translate}} -->
+    </ion-title>
+    <ion-buttons slot="end">
+      <app-header></app-header>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-streak [showProgressBar]="true"></app-streak>
+  <div id="container" #card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title *ngIf="!isAnswer">
+          <div style="display: inline;" (click)="speak(word?.de)">{{word?.de | titlecase | ending: word?.ending}}</div>
+          <div style="display: inline;" *ngIf="word?.ending">
+            <mark  class="ending">{{word?.ending}}</mark>
+            <ion-icon name="information-circle-outline" class="ending-icon" (click)="openEndingModal(word?.article)"></ion-icon>
+          </div>
+        </ion-card-title>
+        <ion-card-title *ngIf="isAnswer" (click)="speak(word?.article + ' ' + word?.de)">{{word?.article | lowercase}} {{word?.de | titlecase}}</ion-card-title>
+        <ion-card-subtitle>{{word?.en | titlecase}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-img class="img" [src]="imgPath + word?.img" *ngIf="isAnswer"></ion-img>
+        <ion-icon class="img-placeholder" name="help-circle-outline" *ngIf="!isAnswer"></ion-icon>
+        <!-- <h1 *ngIf="isAnswer && isCorrect" class="green">Correct</h1>
+        <h1 *ngIf="isAnswer && !isCorrect" class="red">Wrong</h1> -->
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row class="ion-align-items-center article-selector ddd" #ddd *ngIf="!isAnswer && showAnswers">
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" fill="solid" size="large" class="blue" (click)="checkAnswer('der')">Der</ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" fill="solid" size="large" class="red"  (click)="checkAnswer('die')">Die</ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" fill="solid" size="large" class="green" (click)="checkAnswer('das')">Das</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center"  #next *ngIf="isAnswer && !showAnswers">
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" expand="block" fill="solid" size="large" (click)="getNextWord()">{{'page.home.nextWordButton' | translate}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

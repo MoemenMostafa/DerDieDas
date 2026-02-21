@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "892774486829",
+    "project_id": "mobile-app-55f8a",
+    "storage_bucket": "mobile-app-55f8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892774486829:android:aed9ee5b1978280afc39a4",
+        "android_client_info": {
+          "package_name": "io.moamen.ddd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892774486829-q6p5rl7svbftsoe05o2gcd07kfpsjhe4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9OvTIzPpASuEAgjOH5MpiIU1bJipAVlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892774486829-q6p5rl7svbftsoe05o2gcd07kfpsjhe4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

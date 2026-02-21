@@ -1,0 +1,17 @@
+{
+  "appId": "io.moamen.ddd",
+  "appName": "Artikel Welt",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "APP_SECRET": "ebecc913-0710-4db7-8737-7d99d2de7ca2"
+    }
+  }
+}

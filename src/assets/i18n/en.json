@@ -1,0 +1,68 @@
+{
+    "page": {
+        "intro": {
+            "page1": {
+                "title": "What is Artikel Welt?",
+                "body": "<b>Artikel Welt app</b> is a practical tool that will help you memorize the articles (der, die, das) of the most commonly used German nouns by making a <b>visual connection</b> between the noun and the avatar that represents the article."
+            },
+            "page2": {
+                "title": "Masculine (Der)",
+                "body": "The <b>Super Hero</b> represents all the masculine nouns and he is here to help you remember <b>Masculine</b> nouns"
+            },
+            "page3": {
+                "title": "Feminine (Die)",
+                "body": "The <b>Princess</b> represents all the feminine nouns and she will be there for you to help memorize <b>Feminine</b> nouns"
+            },
+            "page4": {
+                "title": "Neutral (Das)",
+                "body": "The <b>Robot</b> represents all the neutral nouns and it is programmed to help you to recall <b>Neutral</b> words"
+            },
+            "page5": {
+                "title": "Proof of concept",
+                "body": "Please note that this is a <b>proof of concept</b> that contains <b>95</b> words only. If you like it please leave a comment in the app store. We are working on a <b>full version</b> with <b>1000+</b> words."
+            }
+        },
+        "home": {
+            "title": "Select The right Article",
+            "nextWordButton": "Next Word"
+        },
+        "games": {
+            "memoryCards": {
+                "title": "Memory Game"
+            }
+        },
+        "endings": {
+            "derTitle": "When To Use Der?",
+            "dieTitle": "When To Use Die?",
+            "dasTitle": "When To Use Das?",
+            "nounEnding": "Noun Ending",
+            "example": "Example"
+        }
+    },
+    "modal": {
+        "success": {
+            "youGot": "You got",
+            "congratulations": "Congratulations",
+            "dailyProgress": "Daily progress"
+        },
+        "progress": {
+            "totalProgress": "Total Progress",
+            "streak" : "Streak"
+        }
+    },
+    "menu": {
+        "title": "Menu",
+        "home": "Home",
+        "memoryCards": "Memory Game",
+        "intro": "Intro",
+        "endings": "Article based on Endings"
+    },
+    "common": {
+        "start": "Start",
+        "again": "Again",
+        "continue": "Continue",
+        "day": " Day",
+        "days": " Days",
+        "close": "Close"
+    }
+}

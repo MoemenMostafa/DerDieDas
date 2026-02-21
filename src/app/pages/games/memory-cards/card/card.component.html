@@ -1,0 +1,9 @@
+<ion-card (click)="flip(true)" #card class="card">
+  <!-- <ion-card-header> -->
+    <div #front class="card-front"><ion-icon name="help-outline"></ion-icon></div>
+    <div #back class="card-back">
+      <div *ngIf="isSolved" #articleElm class="article">{{article}}</div>
+      <div class="word">{{backText}}</div>
+    </div>
+  <!-- </ion-card-header> -->
+</ion-card>
