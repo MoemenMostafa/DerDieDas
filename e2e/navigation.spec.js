@@ -2,32 +2,34 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('App Navigation', () => {
 
-    test('should navigate from intro to home', async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
         await page.goto('/intro');
+        // Wait for hydration
+        await page.waitForTimeout(1000);
 
-        // Slide to the end or click through slides
-        // The explorer used slides.slideTo(4) which is effective
+        // Slide to the end
         await page.evaluate(() => {
             const slides = document.querySelector('ion-slides');
             if (slides) slides.slideTo(4);
         });
 
-        // Wait for the START button on the last slide
+        // Wait for and click the START button
         const startButton = page.locator('ion-button', { hasText: /START/i });
         await expect(startButton).toBeVisible();
         await startButton.click();
 
-        // Should be on the home page
+        // Wait for the home page to load
         await expect(page).toHaveURL(/\/home/);
-        await expect(page.locator('ion-card')).toBeVisible();
+        await expect(page.locator('app-header')).toBeVisible({ timeout: 15000 });
     });
 
     test('should open the side menu and navigate to Memory Game', async ({ page }) => {
-        await page.goto('/home');
+        // Already on /home thanks to beforeEach
 
         // Open the side menu
-        // The menu button is an ion-button with an ellipsis icon
-        const menuButton = page.locator('ion-button').filter({ has: page.locator('ion-icon[name="ellipsis-vertical-outline"]') });
+        // Ensure home page is fully loaded
+        await expect(page.locator('app-header ion-button')).toBeVisible({ timeout: 15000 });
+        const menuButton = page.locator('app-header ion-button');
         await menuButton.click();
 
         // The menu is side="end", wait for it to be visible
@@ -41,14 +43,15 @@ test.describe('App Navigation', () => {
 
         // Should be on the memory cards page
         await expect(page).toHaveURL(/\/memory-cards/);
-        await expect(page.locator('ion-grid')).toBeVisible();
+        await expect(page.locator('#board')).toBeVisible();
     });
 
     test('should open the Article based on Endings modal', async ({ page }) => {
-        await page.goto('/home');
+        // Already on /home thanks to beforeEach
 
         // Open menu
-        await page.locator('ion-button').filter({ has: page.locator('ion-icon[name="ellipsis-vertical-outline"]') }).click();
+        await expect(page.locator('app-header ion-button')).toBeVisible({ timeout: 15000 });
+        await page.locator('app-header ion-button').click();
 
         // Click on Endings link
         const endingsLink = page.locator('ion-item', { hasText: /Article based on Endings/i });
@@ -59,25 +62,25 @@ test.describe('App Navigation', () => {
         await expect(modal).toBeVisible();
 
         // Should see a table with rules (or at least some content in the modal)
-        // The modal content might be inside a different component but let's look for common indicators
-        await expect(page.locator('ion-header')).toContainText(/endings/i);
+        // Check the modal's specific header
+        await expect(modal.locator('ion-header')).toContainText(/endings/i);
 
         // Close the modal
-        // Targeting the close icon specifically
-        const closeIcon = page.locator('ion-icon[name="close"]');
-        await closeIcon.click();
+        // Targeting the close button specifically and forcing it due to Ionic's shadow DOM overlays
+        const closeButton = modal.locator('ion-button').filter({ has: page.locator('ion-icon[name="close"]') });
+        await closeButton.click({ force: true });
 
         await expect(modal).not.toBeVisible();
     });
 
     test('should allow interaction with article buttons on home page', async ({ page }) => {
-        await page.goto('/home');
+        // Already on /home thanks to beforeEach
 
         // Check for der, die, das buttons to be present
-        // Using a generous timeout for initial app load and data fetch
-        const derBtn = page.getByRole('button', { name: /^Der$/i });
-        const dieBtn = page.getByRole('button', { name: /^Die$/i });
-        const dasBtn = page.getByRole('button', { name: /^Das$/i });
+        // Using locator with text directly for Ionic custom elements
+        const derBtn = page.locator('ion-button:has-text("Der")');
+        const dieBtn = page.locator('ion-button:has-text("Die")');
+        const dasBtn = page.locator('ion-button:has-text("Das")');
 
         await expect(derBtn).toBeVisible({ timeout: 20000 });
         await expect(dieBtn).toBeVisible();

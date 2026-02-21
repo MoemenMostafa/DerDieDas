@@ -10,7 +10,7 @@
     "sync": "ng build && ionic cap sync",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "npx playwright test",
     "img": "node scripts/words-check.js",
     "android": "ionic capacitor copy android && cd android && ./gradlew assembleDebug && cd .. && sh scripts/appcenter.sh"
   },
@@ -66,7 +66,6 @@
     "@ionic/angular-toolkit": "^2.3.3",
     "@playwright/test": "^1.58.2",
     "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.20.55",
     "appcenter-cli": "^2.7.3",
     "codelyzer": "^5.1.2",
@@ -77,7 +76,6 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"

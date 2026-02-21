@@ -18,4 +18,10 @@ module.exports = defineConfig({
             use: { ...devices['iPhone 11'] },
         },
     ],
+    webServer: {
+        command: 'NODE_OPTIONS=--openssl-legacy-provider npm start',
+        url: 'http://localhost:4200',
+        reuseExistingServer: !process.env.CI,
+        timeout: 120 * 1000,
+    },
 });
