@@ -2,10 +2,18 @@
 
 Artikel Welt is a mobile application built with Ionic and Angular, designed to help users master German articles (Der, Die, Das) through interactive learning.
 
-<img src="docs/images/screenshot.png" alt="App Preview" width="300">
+### App Preview
+
+| Intro | Home | Menu |
+| :---: | :---: | :---: |
+| <img src="docs/images/intro.png" width="200"> | <img src="docs/images/home.png" width="200"> | <img src="docs/images/menu.png" width="200"> |
+
+| Memory Game | Endings Modal |
+| :---: | :---: |
+| <img src="docs/images/memory.png" width="200"> | <img src="docs/images/endings.png" width="200"> |
 
 <a href="https://play.google.com/store/apps/details?id=io.moamen.ddd">
-  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="200">
+  <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="150">
 </a>
 
 ## Features
