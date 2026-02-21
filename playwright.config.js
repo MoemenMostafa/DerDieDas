@@ -15,7 +15,7 @@ module.exports = defineConfig({
     projects: [
         {
             name: 'chromium',
-            use: { ...devices['iPhone 11'] },
+            use: { ...devices['Pixel 5'] },
         },
     ],
     webServer: {
