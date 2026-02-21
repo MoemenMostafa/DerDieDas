@@ -2,6 +2,8 @@
 
 Artikel Welt is a mobile application built with Ionic and Angular, designed to help users master German articles (Der, Die, Das) through interactive learning.
 
+![App Preview](docs/images/screenshot.png)
+
 ## Features
 
 - **Interactive Learning**: Practice German articles with a user-friendly interface.
