@@ -49,6 +49,11 @@ test.describe('Capture App Screenshots', () => {
         await page.waitForTimeout(2000);
 
         await cleanUI(page);
+        // Hide header specifically for Home screen as it can look cluttered/broken after cleaning
+        await page.evaluate(() => {
+            const header = document.querySelector('ion-header');
+            if (header) header.style.display = 'none';
+        });
         await page.screenshot({ path: 'docs/images/home.png' });
     });
 
